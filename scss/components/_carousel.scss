@@ -1,0 +1,125 @@
+.carousel {
+  width: 530px;
+  height: 468px;
+  position: relative;
+  &__slides {
+    display: none;
+
+    &-title {
+      color: $--color-white;
+      font-size: 50px;
+      line-height: 64px;
+      letter-spacing: -0.06px;
+      position: absolute;
+      top: 60px;
+      text-align: left;
+      left: 200px;
+      span {
+        font-weight: bold;
+      }
+    }
+    &-img {
+      width:100%;
+      height: 468px;
+    }
+    &-caption {
+      color: $--color-white;
+      font-size: 18px;
+      position: absolute;
+      line-height: 30px;
+      letter-spacing: 0.51px;
+      bottom: 175px;
+      left: 200px;
+      right: 27px;
+      text-align: left;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    bottom: 133px;
+    left: 201px;
+    &-item {
+      cursor: pointer;
+      height: 8px;
+      width: 8px;
+      margin-right: 24px;
+      background-color: #ebebeb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+  }
+
+  .active, .carousel__dot-item:hover {
+    background-color: $--color-green;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  &__control {
+    &-prev, &-next {
+      cursor: pointer;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      img {
+        width: 100%;
+      }
+    }
+    &-prev {
+      bottom: 66px;
+      transform: rotate(180deg);
+      left: 184px;
+    }
+    &-next {
+      bottom: 58px;
+      left: 251px;
+    }
+    &-prev:hover, &-next:hover {
+      img {
+        fill: transparent;
+      }
+    }
+  }
+
+  @media screen and (max-width: $--breakpoint-mobile){
+    & {
+      width: 100%;
+      &__slides {
+        &-title, &-caption {
+          left: 30%;
+        }
+      }
+      &__dot {
+        left: 30%;
+      }
+      &__control {
+        &-prev {
+          left: 30%;
+        }
+        &-next {
+          left: 45%;
+        }
+      }
+    }
+  }
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

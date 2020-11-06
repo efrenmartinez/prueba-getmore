@@ -1,0 +1,22 @@
+.section__products {
+  height: 468px;
+  min-height: 468px;
+  width: 100%;
+  display: flex;
+
+  &-items {
+    margin-top: 60px;
+    margin-left: 52px;
+    width: calc(100% - 530px);
+  }
+  @media screen and (max-width: $--breakpoint-mobile) {
+    & {
+      height: auto;
+      flex-direction: column;
+      &-items {
+        width: calc(100% - 30px);
+        margin: 30px 20px 30px 20px;
+      }
+    }
+  }
+}
